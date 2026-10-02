@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Playlist For You 🎵</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Poppins,Arial,sans-serif;
+  background:linear-gradient(135deg,#f8d9e7,#eee1f7);
+  color:#72566a;
+}
+
+.app{
+  width:min(900px,94vw);
+  min-height:calc(100vh - 56px);
+  margin:28px auto;
+  padding:35px 55px 55px;
+  border-radius:32px;
+  background:linear-gradient(180deg,#fff8fb,#fdf1f6);
+  box-shadow:0 0 40px #c98ba722;
+}
+
+.back{
+  border:1px solid #e8bfd2;
+  background:white;
+  color:#d14b8c;
+  border-radius:30px;
+  padding:10px 20px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.title{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin:30px 0;
+}
+
+.icon{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#f9d9e8;
+  font-size:28px;
+}
+
+.title h1{
+  margin:0;
+  color:#5337b4;
+}
+
+.title p{
+  margin:4px 0;
+  color:#9d8190;
+}
+
+.song{
+  background:white;
+  border-radius:18px;
+  margin:15px 0;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  border:1px solid #eee0e8;
+}
+
+.album{
+  width:92px;
+  height:92px;
+  border-radius:12px;
+  background:linear-gradient(145deg,#9bd7ff,#f8c8e5);
+  display:grid;
+  place-items:center;
+  font-size:45px;
+}
+
+.song b{
+  color:#684b6c;
+}
+
+.song small{
+  display:block;
+  color:#9d8190;
+  margin-top:5px;
+}
+
+.play{
+  margin-left:auto;
+  border:0;
+  background:#7955df;
+  color:white;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  cursor:pointer;
+}
+
+.btn{
+  margin-top:20px;
+  border:0;
+  border-radius:30px;
+  padding:12px 23px;
+  background:#df4b98;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+}
+
+@media(max-width:650px){
+
+  .app{
+    width:100%;
+    margin:0;
+    border-radius:0;
+    padding:24px 16px 45px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<button class="back"
+onclick="window.location.href='notes.html'">
+← Back
+</button>
+
+
+<div class="title">
+
+<div class="icon">🎵</div>
+
+<div>
+<h1>Playlist For You</h1>
+<p>Songs dedicated to u</p>
+</div>
+
+</div>
+
+
+<div class="song">
+
+<div class="album">💗</div>
+
+<div>
+<b>505 </b>
+<small>artic monkeys</small>
+</div>
+
+<button class="play"
+<audio controls>
+    <source src="Artic Monkeys - 505.mp3" type="audio/mpeg">
+  </audio>
+▶
+</div>
+
+
+<div class="song">
+
+<div class="album">🎀</div>
+
+<div>
+<b> Earrings</b>
+<small>idk hehe</small>
+</div>
+
+<button class="play"
+<audio controls>
+    <source src="1861152501439919-1861152505295960.mp3" type="audio/mpeg">
+  </audio>
+▶
+</button>
+
+</div>
+
+
+<div class="song">
+
+<div class="album">🌷</div>
+
+<div>
+<b>reflections</b>
+<small>neighbourhood</small>
+</div>
+
+<button class="play"
+<audio controls>
+    <source src="The Neighbourhood - Reflections (lyrics).mp3" type="audio/mpeg">
+  </audio>
+
+▶
+</button>
+
+</div>
+
+
+<button class="btn"
+onclick="window.location.href='game.html'">
+One last thing 👀
+</button>
+
+</div>
+
+</body>
+</html>
+```

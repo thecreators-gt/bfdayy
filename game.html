@@ -1,0 +1,328 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Catch Hearts 🎀</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Poppins,Arial,sans-serif;
+  background:linear-gradient(135deg,#f8d9e7,#eee1f7);
+  color:#72566a;
+}
+
+.app{
+  width:min(900px,94vw);
+  min-height:calc(100vh - 56px);
+  margin:28px auto;
+  padding:35px 55px 55px;
+  border-radius:32px;
+  background:linear-gradient(180deg,#fff8fb,#fdf1f6);
+  box-shadow:0 0 40px #c98ba722;
+}
+
+.back{
+  border:1px solid #e8bfd2;
+  background:white;
+  color:#d14b8c;
+  border-radius:30px;
+  padding:10px 20px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.game-box{
+  background:#fff;
+  border:1px solid #efd5e1;
+  border-radius:22px;
+  padding:20px;
+  margin-top:25px;
+}
+
+h1{
+  text-align:center;
+  color:#d95691;
+}
+
+.game-head{
+  display:flex;
+  justify-content:space-between;
+  color:#d65c94;
+  font-weight:600;
+}
+
+#playfield{
+  height:430px;
+  position:relative;
+  overflow:hidden;
+  border-radius:16px;
+  margin-top:15px;
+  background:linear-gradient(#fffafd,#fff1f7);
+}
+
+.heart{
+  position:absolute;
+  font-size:30px;
+  cursor:pointer;
+  animation:fall 3.4s linear forwards;
+}
+
+@keyframes fall{
+
+  from{
+    transform:translateY(-50px);
+  }
+
+  to{
+    transform:translateY(480px);
+  }
+
+}
+
+.btn{
+  border:0;
+  border-radius:30px;
+  padding:12px 23px;
+  background:#df4b98;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:15px;
+}
+
+.secondary{
+  background:white;
+  color:#d14b8c;
+  border:1px solid #e8bfd2;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:#673b5444;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-card{
+  width:min(360px,100%);
+  background:#fff7fa;
+  border-radius:25px;
+  padding:30px;
+  text-align:center;
+}
+
+.modal-card .big{
+  font-size:55px;
+}
+
+.modal-card h2{
+  color:#d82d83;
+}
+
+@media(max-width:650px){
+
+  .app{
+    width:100%;
+    margin:0;
+    border-radius:0;
+    padding:24px 16px 45px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<button class="back"
+onclick="window.location.href='playlist.html'">
+← Back
+</button>
+
+
+<div class="game-box">
+
+<h1>
+Catch Hearts & Hello Kitty! 🎀
+</h1>
+
+
+<div class="game-head">
+
+<span>
+Score <span id="score">0</span>/15
+</span>
+
+<span>
+Time <span id="time">30</span>s
+</span>
+
+</div>
+
+
+<div id="playfield"></div>
+
+
+<button class="btn secondary"
+onclick="startGame()">
+Restart
+</button>
+
+</div>
+
+</div>
+
+
+<div class="modal" id="modal">
+
+<div class="modal-card">
+
+<div class="big">✨🎀</div>
+
+<h2>You caught all the hearts!</h2>
+
+<p>
+Now you get your final surprise. ♡
+</p>
+
+<button class="btn"
+onclick="closeGame()">
+Awww ^-^
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+let score=0;
+let time=30;
+let timer;
+let spawn;
+
+
+function startGame(){
+
+clearInterval(timer);
+clearInterval(spawn);
+
+score=0;
+time=30;
+
+document.getElementById('score').textContent=score;
+document.getElementById('time').textContent=time;
+
+const field=document.getElementById('playfield');
+
+field.innerHTML='';
+
+spawn=setInterval(makeHeart,650);
+
+timer=setInterval(()=>{
+
+time--;
+
+document.getElementById('time').textContent=time;
+
+if(time<=0){
+
+endGame(false);
+
+}
+
+},1000);
+
+}
+
+
+function makeHeart(){
+
+const field=document.getElementById('playfield');
+
+const h=document.createElement('span');
+
+h.className='heart';
+
+h.textContent=
+['💗','💖','💕','💘','🎀']
+[Math.floor(Math.random()*5)];
+
+h.style.left=
+(4+Math.random()*88)+'%';
+
+h.onclick=()=>{
+
+score++;
+
+document.getElementById('score').textContent=score;
+
+h.remove();
+
+if(score>=15){
+
+endGame(true);
+
+}
+
+};
+
+field.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},3400);
+
+}
+
+
+function endGame(won){
+
+clearInterval(timer);
+clearInterval(spawn);
+
+if(won){
+
+document
+.getElementById('modal')
+.classList.add('show');
+
+}
+
+}
+
+
+function closeGame(){
+
+document
+.getElementById('modal')
+.classList.remove('show');
+
+}
+
+
+startGame();
+
+</script>
+
+</body>
+</html>
+```

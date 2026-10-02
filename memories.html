@@ -1,0 +1,565 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Memories 💗</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@500;600&family=Caveat:wght@500;600;700&display=swap');
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Poppins,Arial,sans-serif;
+
+  background:
+    radial-gradient(circle at 10% 20%, #ffd8e8 0, transparent 25%),
+    radial-gradient(circle at 90% 80%, #e5d5ff 0, transparent 25%),
+    #f7e9ee;
+
+  color:#72566a;
+}
+
+
+/* =========================
+   MAIN SCRAPBOOK
+========================= */
+
+.app{
+  width:min(1150px,94vw);
+  min-height:calc(100vh - 56px);
+
+  margin:28px auto;
+  padding:30px 55px 60px;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      #fffdf8,
+      #fffdf8 28px,
+      #f8eef0 29px
+    );
+
+  border-radius:25px;
+
+  box-shadow:
+    0 15px 45px #9b658033,
+    inset 0 0 40px #f2dce5;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back{
+  border:1px solid #e8bfd2;
+  background:white;
+  color:#d14b8c;
+
+  border-radius:30px;
+
+  padding:10px 20px;
+
+  cursor:pointer;
+
+  font-weight:600;
+
+  transition:.2s;
+}
+
+.back:hover{
+  transform:translateY(-2px);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  text-align:center;
+  padding:15px 0 35px;
+}
+
+.decor{
+  font-size:30px;
+  letter-spacing:8px;
+}
+
+.header h1{
+  font-family:"Playfair Display",serif;
+
+  color:#c95788;
+
+  font-size:42px;
+
+  margin:10px 0 5px;
+}
+
+.header p{
+  color:#9d718b;
+  margin:0;
+}
+
+
+/* =========================
+   SCRAPBOOK GRID
+========================= */
+
+.gallery{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:55px 45px;
+
+  padding:15px;
+}
+
+
+/* =========================
+   MEMORY CARD
+========================= */
+
+.memory{
+  position:relative;
+
+  background:#fff;
+
+  padding:15px 15px 20px;
+
+  border-radius:4px;
+
+  box-shadow:
+    0 7px 18px #76505a25,
+    0 2px 4px #76505a15;
+
+  transition:.3s;
+}
+
+.memory:hover{
+  transform:
+    translateY(-8px)
+    rotate(0deg) !important;
+
+  box-shadow:
+    0 15px 28px #76505a30;
+}
+
+
+/* Different scrapbook angles */
+
+.memory:nth-child(1){
+  transform:rotate(-2deg);
+}
+
+.memory:nth-child(2){
+  transform:rotate(2.5deg);
+}
+
+.memory:nth-child(3){
+  transform:rotate(1.5deg);
+}
+
+.memory:nth-child(4){
+  transform:rotate(-2.5deg);
+}
+
+
+/* =========================
+   WASHI TAPE
+========================= */
+
+.memory::before{
+  content:"";
+
+  position:absolute;
+
+  width:78px;
+  height:25px;
+
+  background:#f6c8d8;
+
+  top:-13px;
+  left:50%;
+
+  transform:
+    translateX(-50%)
+    rotate(-2deg);
+
+  opacity:.9;
+
+  z-index:5;
+}
+
+.memory:nth-child(2)::before{
+  background:#d8c8f4;
+  transform:
+    translateX(-50%)
+    rotate(4deg);
+}
+
+.memory:nth-child(3)::before{
+  background:#f7df9b;
+}
+
+.memory:nth-child(4)::before{
+  background:#c8e3f5;
+
+  transform:
+    translateX(-50%)
+    rotate(-4deg);
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo{
+  width:100%;
+  height:300px;
+
+  overflow:hidden;
+
+  background:#eee;
+
+  border:6px solid white;
+
+  box-shadow:
+    0 2px 7px #00000020;
+}
+.memory:nth-child(1) .photo img {
+    object-position: center 30%;
+}
+.memory:nth-child(2) .photo img {
+    object-position: center 30%;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+  transition:.4s;
+}
+
+.memory:hover .photo img{
+  transform:scale(1.04);
+}
+
+
+/* =========================
+   MEMORY TEXT
+========================= */
+
+.memory h2{
+  font-family:"Caveat",cursive;
+
+  color:#bd6390;
+
+  font-size:29px;
+
+  margin:14px 5px 2px;
+}
+
+.memory p{
+  font-family:"Caveat",cursive;
+
+  color:#876d7d;
+
+  font-size:19px;
+
+  margin:0 5px 8px;
+}
+
+
+/* =========================
+   LITTLE STICKERS
+========================= */
+
+.sticker{
+  position:absolute;
+
+  font-size:25px;
+
+  z-index:6;
+}
+
+.sticker.one{
+  right:-15px;
+  bottom:18px;
+}
+
+.sticker.two{
+  left:-15px;
+  bottom:15px;
+}
+
+.sticker.three{
+  right:-12px;
+  top:20px;
+}
+
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+.center{
+  text-align:center;
+
+  padding-top:45px;
+}
+
+.btn{
+  border:0;
+
+  border-radius:30px;
+
+  padding:13px 25px;
+
+  background:#df4b98;
+
+  color:white;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 6px 15px #df4b9840;
+
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 10px 20px #df4b9850;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+  .app{
+    width:100%;
+
+    margin:0;
+
+    border-radius:0;
+
+    padding:24px 16px 45px;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+
+    gap:45px;
+
+    padding:10px;
+  }
+
+  .memory:nth-child(n){
+    transform:none;
+  }
+
+  .header h1{
+    font-size:34px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+<!-- BACK BUTTON -->
+
+<button
+  class="back"
+  onclick="window.location.href='index.html'">
+
+  ← Back
+
+</button>
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+  <div class="decor">
+    📸 💗 ✨ 🌷
+  </div>
+
+  <h1>
+    Some Special Moments
+  </h1>
+
+  <p>
+    Four little pieces of our story ♡
+  </p>
+
+</div>
+
+
+<!-- =========================
+     SCRAPBOOK
+========================= -->
+
+<div class="gallery">
+
+
+<!-- MEMORY 1 -->
+
+<div class="memory">
+
+  <span class="sticker one">
+    ♡
+  </span>
+
+  <div class="photo">
+
+    <img src="memory1.jpeg"
+      alt="hehe">
+
+  </div>
+
+  <h2>
+    Memory One ♡
+  </h2>
+
+  <p>
+    hehehehee
+  </p>
+
+</div>
+
+
+<!-- MEMORY 2 -->
+
+<div class="memory">
+
+  <span class="sticker two">
+    ✦
+  </span>
+
+  <div class="photo">
+
+    <img
+      src="memory2.jpeg"
+      alt="again hehe">
+
+  </div>
+
+  <h2>
+    Memory Two ✨
+  </h2>
+
+  <p>
+   hehe
+  </p>
+
+</div>
+
+
+<!-- MEMORY 3 -->
+
+<div class="memory">
+
+  <span class="sticker three">
+    🌷
+  </span>
+
+  <div class="photo">
+
+    <img
+      src="memory3.jpeg"
+      alt="a billi which is like u hehe">
+
+  </div>
+
+  <h2>
+    Memory Three 🌷
+  </h2>
+
+  <p>
+    a billi which is like u
+  </p>
+
+</div>
+
+
+<!-- MEMORY 4 -->
+
+<div class="memory">
+
+  <span class="sticker one">
+    💗
+  </span>
+
+  <div class="photo">
+
+    <img
+      src="memory4.jpeg"
+      alt="✨🎀">
+
+  </div>
+
+  <h2>
+    Memory Four 
+  </h2>
+
+  <p>
+    the best one xd
+  </p>
+
+</div>
+
+
+</div>
+
+
+<!-- CONTINUE -->
+
+<div class="center">
+
+  <button
+    class="btn"
+    onclick="window.location.href='notes.html'">
+
+    Continue → 💗
+
+  </button>
+
+</div>
+
+
+</div>
+
+</body>
+</html>
+

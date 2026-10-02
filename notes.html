@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Notes 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Poppins,Arial,sans-serif;
+  background:linear-gradient(135deg,#f8d9e7,#eee1f7);
+  color:#72566a;
+}
+
+.app{
+  width:min(900px,94vw);
+  min-height:calc(100vh - 56px);
+  margin:28px auto;
+  padding:35px 55px 55px;
+  border-radius:32px;
+  background:linear-gradient(180deg,#fff8fb,#fdf1f6);
+  box-shadow:0 0 40px #c98ba722;
+}
+
+.back{
+  border:1px solid #e8bfd2;
+  background:white;
+  color:#d14b8c;
+  border-radius:30px;
+  padding:10px 20px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.hero{
+  text-align:center;
+  padding:20px 0 25px;
+}
+
+.hero h1{
+  color:#bd75a0;
+  font-size:30px;
+}
+
+.hero p{
+  color:#9d718b;
+}
+
+.note{
+  border-radius:17px;
+  padding:22px;
+  margin:15px 0;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.note:hover{
+  transform:translateY(-3px);
+}
+
+.yellow{
+  background:#fff0a7;
+}
+
+.purple{
+  background:#e5c9e9;
+}
+
+.pink{
+  background:#f3c6d8;
+}
+
+.note h3{
+  margin:0 0 8px;
+  color:#7b5b78;
+}
+
+.note p{
+  margin:0;
+  color:#7c6372;
+}
+
+.secret{
+  display:none;
+  margin-top:13px;
+  color:#d34386;
+  font-weight:600;
+}
+
+.note.open .secret{
+  display:block;
+}
+
+.btn{
+  border:0;
+  border-radius:30px;
+  padding:12px 23px;
+  background:#df4b98;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.center{text-align:center}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<button class="back"
+onclick="window.location.href='memories.html'">
+← Back
+</button>
+
+
+<div class="hero">
+
+<h1>
+Little Notes ^-^
+</h1>
+
+<p>
+Click on any note to see the love behind it! ✨
+</p>
+
+</div>
+
+
+<div class="note yellow"
+onclick="this.classList.toggle('open')">
+
+<h3>You make every day brighter ☀️</h3>
+
+<p>Click me!</p>
+
+<div class="secret">
+Because having you around makes ordinary
+days feel special. hehe
+</div>
+
+</div>
+
+
+<div class="note purple"
+onclick="this.classList.toggle('open')">
+
+<h3>You're my favorite person </h3>
+
+<p>Click me!</p>
+
+<div class="secret">
+This one doesn't need much explaining hehe. 
+</div>
+
+</div>
+
+
+<div class="note pink"
+onclick="this.classList.toggle('open')">
+
+<h3>I Love Youu ^-^</h3>
+
+<p>Click me!</p>
+
+<div class="secret">
+And yes, I made an entire website to prove it hehe 
+</div>
+
+</div>
+
+
+<div class="center">
+
+<button class="btn"
+onclick="window.location.href='playlist.html'">
+Playlist becuz whay not hehe 
+</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```

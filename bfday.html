@@ -1,0 +1,210 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Gift For You 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Poppins,Arial,sans-serif;
+  background:linear-gradient(135deg,#f8d9e7,#eee1f7);
+  color:#72566a;
+}
+
+.app{
+  width:min(1100px,94vw);
+  min-height:calc(100vh - 56px);
+  margin:28px auto;
+  padding:38px 55px 55px;
+  border-radius:32px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#fff8fb 0%,#fdf1f6 100%);
+  box-shadow:0 0 40px #c98ba722;
+}
+
+.hero{
+  text-align:center;
+  padding:35px 10px 28px;
+}
+
+.hero h1{
+  font-size:40px;
+  line-height:1.15;
+  color:#d92c87;
+  margin:0 0 10px;
+}
+
+.hero p{
+  margin:0;
+  color:#9d718b;
+  font-size:15px;
+}
+
+.card{
+  position:relative;
+  border-radius:22px;
+  padding:30px 20px;
+  margin:18px 0;
+  background:#fffafa;
+  border:1px solid #f0d5df;
+  box-shadow:0 8px 24px #b9698c18;
+  text-align:center;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 14px 30px #b9698c25;
+}
+
+.card:before,.card:after{
+  content:"♥";
+  position:absolute;
+  color:#db4e98;
+  font-size:16px;
+}
+
+.card:before{top:12px;left:13px}
+.card:after{top:12px;right:13px}
+
+.icon{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  background:#f9d9e8;
+  border:1px solid #efc5d9;
+  font-size:28px;
+  box-shadow:0 4px 0 #eac0d2;
+}
+
+.card h2{
+  margin:7px 0;
+  color:#d43b88;
+  font-size:21px;
+}
+
+.card p{
+  margin:5px 0;
+  color:#967287;
+  font-size:14px;
+}
+
+.yellow{
+  background:#fff9df;
+  border-color:#eadb9a;
+}
+
+.yellow .icon{
+  background:#fff1a9;
+  border-color:#ecd984;
+}
+
+.yellow h2{
+  color:#d96b21;
+}
+
+.small{
+  text-align:center;
+  color:#ae879a;
+  font-size:11px;
+  margin-top:25px;
+}
+
+@media (min-width:800px){
+
+  #home{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+    align-items:center;
+  }
+
+  #home .hero{
+    grid-column:1/-1;
+  }
+
+  #home .card{
+    margin:0;
+    min-height:220px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+}
+
+@media (max-width:650px){
+
+  .app{
+    width:100%;
+    margin:0;
+    border-radius:0;
+    padding:24px 16px 45px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<section id="home">
+
+  <div class="hero">
+    <h1>awooo,<br>Aarsh ^-^</h1>
+    <p>A Gift For You</p>
+  </div>
+
+  <!-- LETTER -->
+
+  <div class="card"
+       onclick="window.location.href='letter.html'">
+
+    <div class="icon">✉️</div>
+
+    <h2>Read My Letter</h2>
+
+    <p>Click to see your special letter</p>
+
+    <p>♡ — ✨ — ♡</p>
+
+  </div>
+
+
+  <!-- MEMORIES -->
+
+  <div class="card yellow"
+       onclick="window.location.href='memories.html'">
+
+    <div class="icon">🖼️</div>
+
+    <h2>Some Special Moments</h2>
+
+    <p>Click to see four random memories ✨</p>
+
+  </div>
+
+</section>
+
+<p class="small">
+  made with ♡ for someone special
+</p>
+
+</div>
+
+</body>
+</html>
+```
+
